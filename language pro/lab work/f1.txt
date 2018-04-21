@@ -1,0 +1,4 @@
+this is a number 13245
+how are you 12
+hello fork()
+linux is very intereart to learn.

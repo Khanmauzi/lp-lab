@@ -1,0 +1,5 @@
+This is sample text
+to count stuff and stuff
+and this works with the help
+of lex.
+lex is awesome

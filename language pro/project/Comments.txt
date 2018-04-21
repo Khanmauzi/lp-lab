@@ -1,0 +1,11 @@
+Comments
+
+91- 96 : Initially, when we have the program, we start by getting a new Clear row in a table
+96-104 : If not Initially, we copy the code from the LastIndex and then append the current code to it
+			Elsewise, We just make sure we get the answer code from the intermediate code
+			We update the Main Index and the Last Index ;
+106-124 : This is breaking down Statement's into their respective SubCategories -> Declaration Statement
+			Assignment Statement
+			IfStatement
+			WhileStatement
+

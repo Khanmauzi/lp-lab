@@ -1,0 +1,2 @@
+	 main(){
+ a,b,c;! x,y,z;- kl;7 s;

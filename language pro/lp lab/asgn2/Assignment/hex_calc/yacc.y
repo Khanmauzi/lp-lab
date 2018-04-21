@@ -1,0 +1,76 @@
+%{
+
+#include<stdio.h>
+double value;
+
+%}
+%token NUM
+%left '+' '-'
+%left '*' '/'
+%right NEGATIVE
+%%
+S:  E {value = $$;}
+    ;
+E:  E '+' E { $$ = $1 + $3;}
+    |   E '*' E {$$ = $1 * $3;}
+    |   E '-' E {$$ = $1 - $3;}
+    |   E '/' E {$$ = $1 / $3;}
+    |   '(' E ')' {$$ = $2 ;}
+    |   '-' E %prec NEGATIVE {$$ = -$2;}
+    |   NUM
+    ;
+%%
+
+void decToHexa(int n)
+{   
+    // char array to store hexadecimal number
+     printf("number in function %d\n", n);
+    char hexaDeciNum[100];
+     
+    // counter for hexadecimal number array
+    int i = 0;
+    while(n!=0)
+    {   
+        // temporary variable to store remainder
+        int temp  = 0;
+         
+        // storing remainder in temp variable.
+        temp = n % 16;
+         
+        // check if temp < 10
+        if(temp < 10)
+        {
+            hexaDeciNum[i] = temp + 48;
+            i++;
+        }
+        else
+        {
+            hexaDeciNum[i] = temp + 55;
+            i++;
+        }
+        n = n/16;
+    }
+     
+    // printing hexadecimal number array in reverse order
+    for(int j=i-1; j>=0; j--)
+        printf("%c",hexaDeciNum[j]);
+}
+
+int main(){
+    yyparse();
+    // value = value%1.0;
+	printf("%lf \n",value);
+    double frac = value - (int)value;
+    // printf("frac - %f\n", frac);
+    frac *=100;
+    decToHexa((int)value);
+    // printf(".");
+    // decToHexa((int)frac);
+
+}
+int yywrap(){
+ return 1;
+}
+int yyerror(){
+printf("error");
+}
